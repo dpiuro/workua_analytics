@@ -1,5 +1,5 @@
 import scrapy
-from workua_analytics.config import technologies
+from scraping.config import technologies
 
 
 class WorkuaSpider(scrapy.Spider):
@@ -12,16 +12,16 @@ class WorkuaSpider(scrapy.Spider):
         for link in job_links:
             yield response.follow(link, callback=self.parse_job)
 
-        next_page = response.css("ul.pagination li a:contains('Наступна')::attr(href)").get()
+        next_page = response.css("ul.pagination li a:contains('Next')::attr(href)").get()
         if next_page:
-            self.logger.info(f"Переходимо на наступну сторінку: {next_page}")
+            # Log the navigation to the next page
+            self.logger.info(f"Navigating to the next page: {next_page}")
             yield response.follow(next_page, callback=self.parse)
         else:
-            self.logger.info("Наступної сторінки немає.")
+            self.logger.info("No next page found.")
 
     def parse_job(self, response):
         title = response.css("h1::text").get()
-
         description = response.css("div#job-description *::text").getall()
 
         if description:

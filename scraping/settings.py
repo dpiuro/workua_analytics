@@ -7,10 +7,10 @@
 #     https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
 #     https://docs.scrapy.org/en/latest/topics/spider-middleware.html
 
-BOT_NAME = "workua_analytics"
+BOT_NAME = "scraping"
 
-SPIDER_MODULES = ['workua_analytics.spiders']
-NEWSPIDER_MODULE = 'workua_analytics.spiders'
+SPIDER_MODULES = ['scraping.spiders']
+NEWSPIDER_MODULE = 'scraping.spiders'
 
 FEED_EXPORT_ENCODING = "utf-8"
 FEED_FORMAT = "csv"

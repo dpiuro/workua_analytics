@@ -50,3 +50,4 @@ class WorkuaSpider(scrapy.Spider):
     def close_spider(self, spider):
         self.file.close()
         self.logger.info("CSV file has been saved and closed.")
+# scrapy crawl workua

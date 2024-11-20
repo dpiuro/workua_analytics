@@ -13,8 +13,11 @@ def count_technologies(data):
     technology_list = [tech.strip() for tech in technology_list if tech.strip()]
 
     technology_counts = Counter(technology_list)
-    return pd.DataFrame(technology_counts.items(), columns=["Technology", "Count"]).sort_values(by="Count",
-                                                                                                ascending=False)
+    return (
+        pd.DataFrame(technology_counts.items(),
+                     columns=["Technology", "Count"])
+        .sort_values(by="Count", ascending=False)
+    )
 
 
 def plot_technologies(tech_counts_df):

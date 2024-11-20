@@ -10,7 +10,6 @@ class WorkuaSpider(scrapy.Spider):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        # Open the CSV file in append mode and initialize writer
         self.file = open("data.csv", mode="w", newline="", encoding="utf-8")
         self.writer = csv.DictWriter(self.file, fieldnames=["title", "description", "technologies"])
         self.writer.writeheader()  # Write the CSV header
@@ -20,7 +19,7 @@ class WorkuaSpider(scrapy.Spider):
         for link in job_links:
             yield response.follow(link, callback=self.parse_job)
 
-        next_page = response.css("ul.pagination li a:contains('Наступна')::attr(href)").get()
+        next_page = response.css("ul.pagination li a:contains('Next')::attr(href)").get()
         if next_page:
             self.logger.info(f"Moving to the next page: {next_page}")
             yield response.follow(next_page, callback=self.parse)

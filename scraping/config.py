@@ -1,0 +1,1 @@
+technologies = ["Django", "Flask", "PostgreSQL", "JavaScript", "AWS", "Docker", "FastAPI", "React"]

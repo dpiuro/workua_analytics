@@ -1,0 +1,47 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Scrapy cache files
+.scrapy/
+
+# Logs and temporary files
+*.log
+*.csv
+*.json
+*.jl
+*.db
+
+# Virtual environment
+venv/
+.env/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints
+
+# macOS files
+.DS_Store
+
+# Windows thumbnail cache files
+Thumbs.db
+
+# Python packaging
+*.egg-info/
+.eggs/
+dist/
+build/
+*.egg
+
+# IDEs
+.idea/
+.vscode/
+
+# Pytest cache
+.pytest_cache/
+
+# Env files
+.env
